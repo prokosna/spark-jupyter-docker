@@ -27,7 +27,7 @@ services:
       - "8082:8082"
     environment:
       - "SPARK_MASTER=spark://spark-master:7077"
-  jupyter:
+  spark-jupyter:
     build: jupyter
     container_name: spark-jupyter
     depends_on:
@@ -36,8 +36,8 @@ services:
       - "8888:8888"
     environment:
       - "SPARK_MASTER=spark://spark-master:7077"
-      - "PYSPARK_EXECUTOR_MEMORY=5g"
-      - "PYSPARK_DRIVER_MEMORY=5g"
+      - "PYSPARK_EXECUTOR_MEMORY=1g"
+      - "PYSPARK_DRIVER_MEMORY=1g"
       - "PYSPARK_DATA=/spark/data"
     volumes:
       - type: bind
